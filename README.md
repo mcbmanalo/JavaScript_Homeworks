@@ -12,7 +12,7 @@ The following files are:
 2. isVowelOf.js
    - A function that takes a word as an argument and returns the vowels of the word
 
-3. isPalindrom.js
+3. isPalindrome.js
    - A function that checks if a given word is a Palindrome
 
 4. flexHomework folder
