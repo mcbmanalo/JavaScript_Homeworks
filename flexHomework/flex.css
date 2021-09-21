@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 40px;
+    margin-left: 40px;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    border: 2px solid black;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .additional-info {
+    border: 2px solid black;
+    flex-grow: 3;
+    text-align: center;
+  }
+  
+  .body {
+    border: 2px solid black;
+    flex-grow: 8;
+    text-align: center;
+  }
+  
+  .message {
+    position: fixed;
+    border: 2px solid black;
+    background: #ffff;
+    height: 60px;
+    width: 400px;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    z-index: 1;
+    text-align: center;
+  }
+  
