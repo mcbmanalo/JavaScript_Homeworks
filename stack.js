@@ -2,18 +2,18 @@ console.clear()
 
 class Stack {
   constructor() {
-    this.queue = []
+    this.stack = []
   }
   push(item) {
-    this.queue.push(item)
+    this.stack.push(item)
   }
   pop() {
-    const isEmpty = this.queue.length === 0
+    const isEmpty = this.stack.length === 0
     if (isEmpty) return "ERROR: Stack is empty" 
-    return this.queue.pop()
+    return this.stack.pop()
   }
-  getQueue() {
-    return this.queue
+  getStack() {
+    return this.stack
   }
 }
 
