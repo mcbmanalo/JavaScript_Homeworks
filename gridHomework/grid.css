@@ -1,0 +1,37 @@
+.wrapper {
+    margin-right: 40px;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr;
+    grid-gap: 10px;
+    height: 100vh;
+  }
+  
+  .sidebar {
+    border: 2px solid black;
+    text-align: center;
+  }
+  
+  .additional-info {
+    border: 2px solid black;
+    text-align: center;
+  }
+  
+  .body {
+    border: 2px solid black;
+    text-align: center;
+  }
+  
+  .message {
+    position: fixed;
+    border: 2px solid black;
+    background: #ffff;
+    height: 60px;
+    width: 400px;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    z-index: 1;
+    text-align: center;
+  }
+  
