@@ -18,7 +18,9 @@
     </div>
     
     <div class='delete-button'>
-      <select class=inputDesign type='text' id='delete-input'></select>
+      <select class=inputDesign type='text' id='delete-input'>
+        <option disabled selected>Please choose</option>
+      </select>
       <button class='btn' id='delete-btn' onclick='deleteItem();'>
         Delete
       </button>
@@ -54,23 +56,23 @@
         listItem.appendChild(listItemText)
         addToOptions(inputValue)
         listItem.onclick = function() {
-          this.remove()
+          deleteItem(this.textContent)
         }
         document.getElementById('list').appendChild(listItem)
       }
       
-      function deleteItem() {
-        const deleteValue = document.getElementById('delete-input').value
-        if (deleteValue.length < 1) return
+      function deleteItem(word) {
+        const deleteValue = word || document.getElementById('delete-input').value
         var listItems = document.getElementById('list').getElementsByTagName('li')
-        var optionItems = document.getElementById('delete-input').getElementsByTagName('option')
         const listLength = listItems.length
+        if (deleteValue.length < 1 && listLength > 0) return   
+        var optionItems = document.getElementById('delete-input').getElementsByTagName('option')        
         for (index = 0; index < listLength; index++) {
           const key = index.toString()
           const itemValue = listItems[key].textContent
           if (deleteValue == itemValue) {
             listItems[index].remove()
-            optionItems[index].remove()
+            optionItems[index+1].remove()
             break
           }
         }
