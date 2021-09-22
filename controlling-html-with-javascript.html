@@ -45,6 +45,9 @@
         const listItem = document.createElement('LI')
         const listItemText = document.createTextNode(inputValue)
         listItem.appendChild(listItemText)
+        listItem.onclick = function() {
+          this.remove()
+        }
         document.getElementById('list').appendChild(listItem)
       }
       
