@@ -18,7 +18,7 @@
     </div>
     
     <div class='delete-button'>
-      <input type='text' id='delete-input' />
+      <select class=inputDesign type='text' id='delete-input'></select>
       <button class='btn' id='delete-btn' onclick='deleteItem();'>
         Delete
       </button>
@@ -37,6 +37,13 @@
       const pTag = document.getElementById('text-content')
       console.log(pTag.innerHTML)
 
+      function addToOptions(option) {
+        const options = document.getElementById('delete-input')
+        const optionItem = document.createElement('option')
+        optionItem.value = option
+        optionItem.textContent = option
+        options.appendChild(optionItem)
+      }
 
       function addToList() {
         const inputValue = document.getElementById('list-input').value
@@ -45,6 +52,7 @@
         const listItem = document.createElement('LI')
         const listItemText = document.createTextNode(inputValue)
         listItem.appendChild(listItemText)
+        addToOptions(inputValue)
         listItem.onclick = function() {
           this.remove()
         }
@@ -55,12 +63,15 @@
         const deleteValue = document.getElementById('delete-input').value
         if (deleteValue.length < 1) return
         var listItems = document.getElementById('list').getElementsByTagName('li')
+        var optionItems = document.getElementById('delete-input').getElementsByTagName('option')
         const listLength = listItems.length
         for (index = 0; index < listLength; index++) {
           const key = index.toString()
           const itemValue = listItems[key].textContent
           if (deleteValue == itemValue) {
-            return listItems[index].remove()
+            listItems[index].remove()
+            optionItems[index].remove()
+            break
           }
         }
       }
