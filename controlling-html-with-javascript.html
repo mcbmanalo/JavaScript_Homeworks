@@ -25,7 +25,10 @@
         Delete
       </button>
     </div>
-
+    
+    <div>
+      <p id='error-empty-list'>Error: Empty list</p>
+    </div>
 
     <script>
       function changeHeader() {
@@ -50,7 +53,8 @@
       function addToList() {
         const inputValue = document.getElementById('list-input').value
         if (inputValue.length < 1) return
-
+        var errorEmptyList = document.getElementById('error-empty-list')
+        errorEmptyList.hidden = true;
         const listItem = document.createElement('LI')
         const listItemText = document.createTextNode(inputValue)
         listItem.appendChild(listItemText)
@@ -65,7 +69,12 @@
         const deleteValue = word || document.getElementById('delete-input').value
         var listItems = document.getElementById('list').getElementsByTagName('li')
         const listLength = listItems.length
-        if (deleteValue.length < 1 && listLength > 0) return   
+        if (deleteValue.length < 1 || listLength < 0) {
+          var errorEmptyList = document.getElementById('error-empty-list')
+          errorEmptyList.hidden = false;
+          console.log('entered')
+          return
+        }
         var optionItems = document.getElementById('delete-input').getElementsByTagName('option')        
         for (index = 0; index < listLength; index++) {
           const key = index.toString()
