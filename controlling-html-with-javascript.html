@@ -18,7 +18,7 @@
     </div>
     
     <div class='delete-button'>
-      <select class=inputDesign type='text' id='delete-input'>
+      <select type='text' id='delete-input'>
         <option disabled selected>Please choose</option>
       </select>
       <button class='btn' id='delete-btn' onclick='deleteItem();'>
@@ -26,8 +26,8 @@
       </button>
     </div>
     
-    <div>
-      <p id='error-empty-list'>Error: Empty list</p>
+    <div hidden id='error-empty-list'>
+      Error: Empty list or No selected value
     </div>
 
     <script>
@@ -65,16 +65,27 @@
         document.getElementById('list').appendChild(listItem)
       }
       
+      function isDeleteEligible(deleteValue, listItems, listLength) {
+        const isNotEligibleDelete = deleteValue.length < 1 || 
+                                    deleteValue === 'Please choose' ||
+                                    listLength <= 0
+        var errorEmptyList = document.getElementById('error-empty-list')
+        if (isNotEligibleDelete) {         
+          errorEmptyList.hidden = false;
+          console.log('entered')
+          return true
+        }
+        errorEmptyList.hidden = true;
+        return false
+      }
+      
       function deleteItem(word) {
         const deleteValue = word || document.getElementById('delete-input').value
         var listItems = document.getElementById('list').getElementsByTagName('li')
         const listLength = listItems.length
-        if (deleteValue.length < 1 || listLength < 0) {
-          var errorEmptyList = document.getElementById('error-empty-list')
-          errorEmptyList.hidden = false;
-          console.log('entered')
-          return
-        }
+        
+        if (isDeleteEligible(deleteValue, listItems, listLength)) return
+        
         var optionItems = document.getElementById('delete-input').getElementsByTagName('option')        
         for (index = 0; index < listLength; index++) {
           const key = index.toString()
