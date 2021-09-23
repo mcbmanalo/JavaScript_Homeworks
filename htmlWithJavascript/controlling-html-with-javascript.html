@@ -27,12 +27,14 @@
     </div>
     
     <div hidden id='error-empty-list'>
-      Error: Empty list or No selected value
+        Error: Empty list or No selected value
     </div>
 
     <script>
       function changeHeader() {
-        document.getElementById('header-main').textContent = document.getElementById('input').value
+        const titleInput = document.getElementById('input').value
+        if (titleInput.length <= 0) return
+        document.getElementById('header-main').textContent = titleInput
       }
 
       const headerMain = document.getElementsByClassName('header-main')
