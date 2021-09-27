@@ -22,3 +22,10 @@ The following files are:
 5. gridHomework folder
    - Contains a .css and .html file
    - Objective of this file is to make a flex layout of the twitter website
+
+6. htmlWithJavascript
+   - Contains a .css and .html file with javascript
+   - Objective of this file is to make a list that is able to add or delete an item
+   - It has a function where it can change the title of the list
+   - An addition to it's delete function is that it can delete items that are clicked
+   
